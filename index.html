@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Películas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: white;
+      padding: 20px;
+      width: 220px;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card h2 {
+      font-size: 20px;
+      color: #007acc;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      margin: 5px 0;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Catálogo de Películas</h1>
+  <div class="contenedor" id="contenedor"></div>
+
+  <script>
+    let peliculas = [
+      { titulo: "Scarface", director: "Brian De Palma", año: 1983, duracion: 165 },
+      { titulo: "El Padrino", director: "Francis Ford Coppola", año: 1972, duracion: 175 },
+      { titulo: "La Lista de Schindler", director: "Steven Spielberg", año: 1993, duracion: 195 },
+      { titulo: "Perfume de Mujer", director: "Martin Brest", año: 1992, duracion: 156 },
+      { titulo: "Los Intocables", director: "Brian de Palma", año: 1987, duracion: 119 },
+      { titulo: "El Irlandés", director: "Martin Scorsese", año: 2019, duracion: 209 },
+      { titulo: "Joker", director: "Todd Phillips", año: 2019, duracion: 122 },
+      { titulo: "Eterno Resplandor de una Mente sin Recuerdos", director: "Michel Gondry", año: 2004, duracion: 108 },
+      { titulo: "El Club de los Vándalos", director: "Jeff Nichols", año: 2024, duracion: 116 }
+    ];
+
+    // ✅ Insertar productos en el DOM con map()
+    let contenedor = document.getElementById("contenedor");
+
+    peliculas.map(pelicula => {
+      let div = document.createElement("div");
+      div.className = "card";
+      div.innerHTML =` 
+        <h2>${pelicula.titulo}</h2>
+        <p><strong>Director:</strong> ${pelicula.director}</p>
+        <p><strong>Año Lanzamiento:</strong> ${pelicula.año}</p>
+        <p><strong>Duracion:</strong> ${pelicula.duracion} minutos</p>
+      `;
+      contenedor.appendChild(div);
+    });
+  </script>
+
+</body>
+</html>
